@@ -114,10 +114,31 @@ main {
 #image-preview {
     margin-top: 10px;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 16px;
+    overflow-x: auto;
+    white-space: nowrap;
+    height: 120px; 
+    
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #2b60de;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: #f0f0f0;
+    }
+}
+
+#image-preview img {
+    height: calc(100% - 10px);
+    border-radius: 2px;margin-bottom: 10px;
 }
 
 #image-drop {
-    background-color: hsla(0, 0%, 0%, 0.736);
+    background-color: hsla(0, 0%, 0%, 0.788);
 }

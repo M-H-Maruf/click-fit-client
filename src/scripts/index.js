@@ -58,7 +58,6 @@ $(document).ready(() => {
             reader.onload = (e) => {
                 const img = document.createElement('img');
                 img.src = e.target.result;
-                img.style.width = '100%';
                 imagePreview.appendChild(img);
             };
             reader.readAsDataURL(files[i]);
