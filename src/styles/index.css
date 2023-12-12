@@ -32,6 +32,10 @@
     z-index: 999;
 }
 
+.section-title{
+    font-family: var(--orbitron);
+}
+
 /* body styles */
 body {
     background-color: black;
