@@ -1,11 +1,60 @@
-/* || RESET */
+/* google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&family=Orbitron:wght@600&display=swap');
+
+/* style reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
+}
 
+/* variables */
+:root {
+    /* fonts */
+    --mukta: 'Mukta', sans-serif;
+    --orbitron: 'Orbitron', sans-serif;
+    
+
+    /* colors */
+    --primary-blue: #2b60de;
+    --primary-dark: #000000;
+    --secondary-dark: #14131387;
+    --primary-white: #ffffff;
+    --secondary-white: #e5efe7;
+
+    /* borders */
+    --border: 1px solid var(--primary-blue);
+    --border-dashed: 2px dashed var(--primary-blue);
+}
+
+
+/* body styles */
 body {
     background-color: black;
+    font-family: var(--mukta);
+}
 
+/* navbar styles */
+.navbar {
+    height: 70px;
+}
+
+.navbar-brand img {
+    max-height: 50px;
+    border-radius: 50%;
+}
+
+.nav-title{
+    font-family: var(--orbitron);
+    color: #2b60de;
+    cursor: pointer;
+}
+
+.nav-link.active{
+    --bs-navbar-active-color: var(--primary-blue);
+    font-weight: 700;
+}
+
+.nav-link:hover{
+    color: var(--primary-blue);
 }
