@@ -99,3 +99,16 @@ main {
     min-height: calc(100vh - 70px);
     color: white;
 }
+
+.drop-area {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: border 0.3s ease;
+}
+
+#image-preview {
+    margin-top: 10px;
+}
