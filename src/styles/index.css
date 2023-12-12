@@ -29,10 +29,11 @@
 
 /* utility styles */
 .show {
+    position: relative;
     z-index: 999;
 }
 
-.section-title{
+.section-title {
     font-family: var(--orbitron);
 }
 
@@ -100,6 +101,7 @@ main {
     color: white;
 }
 
+/* image upload styles */
 .drop-area {
     border: 2px dashed #ccc;
     padding: 20px;
@@ -111,5 +113,11 @@ main {
 
 #image-preview {
     margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
+#image-drop {
+    background-color: hsla(0, 0%, 0%, 0.736);
+}

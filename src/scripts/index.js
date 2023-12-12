@@ -81,16 +81,19 @@ $(document).ready(() => {
             success: (data) => {
                 console.log('Images uploaded successfully:', data);
 
-                // Clear image preview
+                // clear image preview
                 $('#image-preview').empty();
 
-                // Show Bootstrap Toast
+                // clear selected files from the input
+                $('#file-input').val('');
+
+                // show bootstrap Toast
                 showToast('Images uploaded successfully!');
             },
             error: (error) => {
                 console.error('Error uploading images:', error);
 
-                // Show Bootstrap Toast for error
+                // show bootstrap toast for error
                 showToast('Error uploading images. Please try again.', 'error');
             }
         });
