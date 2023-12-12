@@ -46,7 +46,7 @@ $(document).ready(() => {
     $('#upload-button').on('click', () => {
         const files = $('#file-input').get(0).files;
         showImagePreview(files);
-        uploadImages(files); 
+        uploadImages(files);
     });
 
     const showImagePreview = (files) => {
@@ -80,10 +80,43 @@ $(document).ready(() => {
             contentType: false,
             success: (data) => {
                 console.log('Images uploaded successfully:', data);
+
+                // Clear image preview
+                $('#image-preview').empty();
+
+                // Show Bootstrap Toast
+                showToast('Images uploaded successfully!');
             },
             error: (error) => {
                 console.error('Error uploading images:', error);
+
+                // Show Bootstrap Toast for error
+                showToast('Error uploading images. Please try again.', 'error');
             }
         });
+
+        const showToast = (message, type = 'success') => {
+            const toast = $('<div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="3000">');
+            toast.addClass(`toast-${type}`);
+            toast.text(message);
+            toast.attr('style', `padding:20px; text-align: center; z-index: 1000;`);
+
+            // apply inline styles based on toast type
+            if (type === 'success') {
+                toast.attr('style', `background-color: #28a745; color: #fff; ${toast.attr('style')}`);
+            } else if (type === 'error') {
+                toast.attr('style', `background-color: #dc3545; color: #fff; ${toast.attr('style')}`);
+            }
+
+            $('.toast-container').append(toast);
+
+            // initialize and show the toast
+            $('.toast').toast('show');
+
+            // remove the toast element after it is hidden
+            toast.on('hidden.bs.toast', function () {
+                $(this).remove();
+            });
+        };
     };
 });
