@@ -20,14 +20,23 @@
     <link rel="stylesheet" href="./src/styles/index.css" />
   </head>
   <body>
+    <!-- Preloader -->
+    <div id="preloader">
+      <div class="spinner-border loader " role="status"></div>
+    </div>
+
     <!-- navbar -->
     <nav class="navbar navbar-dark bg-dark fixed-top">
       <div class="container-fluid">
         <div class="flex-row d-flex justify-content-center align-items-center">
-            <a class="navbar-brand" href="./index.html"><img src="./assets/images/logo.png" alt="click fit logo"></a>
-            <h1 class="navbar-brand nav-title" >Click <span style="color: white;">Fit</span></h1>
+          <a class="navbar-brand" href="./index.html"
+            ><img src="./assets/images/logo.png" alt="click fit logo"
+          /></a>
+          <h1 class="navbar-brand nav-title">
+            Click <span style="color: white">Fit</span>
+          </h1>
         </div>
-        
+
         <!-- drawer toggle -->
         <button
           class="navbar-toggler"
@@ -48,7 +57,8 @@
           aria-labelledby="offcanvasDarkNavbarLabel"
         >
           <div class="offcanvas-header">
-            <h5 class="offcanvas-title nav-title" id="offcanvasDarkNavbarLabel">Click <span style="color: white;">Fit</span>
+            <h5 class="offcanvas-title nav-title" id="offcanvasDarkNavbarLabel">
+              Click <span style="color: white">Fit</span>
             </h5>
             <button
               type="button"
@@ -60,7 +70,12 @@
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="./index.html"
+                  >Home</a
+                >
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Services</a>
@@ -72,7 +87,6 @@
                 <a class="nav-link" href="#">Contact Us</a>
               </li>
             </ul>
-    
           </div>
         </div>
       </div>
