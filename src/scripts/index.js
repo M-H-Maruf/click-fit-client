@@ -1,8 +1,9 @@
 $(document).ready(() => {
     // preloader appearance disappearance
-    $('#preloader').delay(1000).fadeOut(500, function () {
+    $('#preloader').delay(1000).slideUp(500, function () {
+        // Slide up the preloader, then fadeIn the content
         $('#content').fadeIn(500);
-    });
+      });
 
     // ajax call to numbers api
     $.ajax({

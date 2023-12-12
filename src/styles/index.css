@@ -30,7 +30,7 @@
 /* utility styles */
 .show {
     position: relative;
-    z-index: 999;
+    z-index: 600;
 }
 
 .section-title {
@@ -68,6 +68,10 @@ body {
     z-index: 999;
 }
 
+#navbar {
+    background-color: #000 !important;
+}
+
 .navbar-brand img {
     max-height: 50px;
     border-radius: 50%;
@@ -87,20 +91,33 @@ nav li::marker {
     display: none;
 }
 
+#menu-button {
+    background-color: hsla(0, 0%, 100%, 0.147);
+}
+
 .dropdown-menu-end[data-bs-popper] {
     top: 60px;
     background-color: #000;
+    position: relative;
+    z-index: 1000;
+    border-radius: 0;
 }
 
 .dropdown-item {
     color: white;
 }
 
-header a:hover {
-    color: #ffcc00; /* Change the color to your desired hover color */
+a.show.link-underline-opacity-0.link-underline {
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+a.show.link-underline-opacity-0.link-underline:hover {
+    color: var(--primary-blue);
     text-decoration: underline;
-    text-underline-offset: 2px; /* Adjust the offset as needed */
-    transition: color 0.3s ease, text-underline-offset 0.3s ease; /* Add a smooth transition effect */
+    text-underline-offset: 2px;
+    transition: color 0.3s ease, text-underline-offset 0.3s ease;
 }
 
 /* main styles */
@@ -132,6 +149,20 @@ main {
     animation: blink 1s infinite;
 }
 
+.banner-half {
+    scale: 0;
+    animation: zoom 1s ease-in-out forwards;
+    animation-delay: 1.2s;
+  }
+  
+  @keyframes zoom {
+    from {
+      scale: 0;
+    }
+    to {
+      scale: 1;
+    }
+  }
 
 /* image upload styles */
 .drop-area {
@@ -179,7 +210,6 @@ main {
 /* responsive styles */
 @media screen and (min-width: 992px) {
     .banner-half {
-      width: 50%;
+        width: 50%;
     }
-  }
-  
+}
