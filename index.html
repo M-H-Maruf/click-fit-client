@@ -18,79 +18,130 @@
     />
     <!-- CSS stylesheets -->
     <link rel="stylesheet" href="./src/styles/index.css" />
+    <link rel="stylesheet" href="./src/styles/particle.css" />
   </head>
   <body>
-    <!-- Preloader -->
-    <div id="preloader">
-      <div class="spinner-border loader " role="status"></div>
-    </div>
-
-    <!-- navbar -->
-    <nav class="navbar navbar-dark bg-dark fixed-top">
-      <div class="container-fluid">
-        <div class="flex-row d-flex justify-content-center align-items-center">
-          <a class="navbar-brand" href="./index.html"
-            ><img src="./assets/images/logo.png" alt="click fit logo"
-          /></a>
-          <h1 class="navbar-brand nav-title">
-            Click <span style="color: white">Fit</span>
-          </h1>
-        </div>
-
-        <!-- drawer toggle -->
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasDarkNavbar"
-          aria-controls="offcanvasDarkNavbar"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- drawer -->
-        <div
-          class="offcanvas offcanvas-end text-bg-dark"
-          tabindex="-1"
-          id="offcanvasDarkNavbar"
-          aria-labelledby="offcanvasDarkNavbarLabel"
-        >
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title nav-title" id="offcanvasDarkNavbarLabel">
-              Click <span style="color: white">Fit</span>
-            </h5>
-            <button
-              type="button"
-              class="btn-close btn-close-white"
-              data-bs-dismiss="offcanvas"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="offcanvas-body">
-            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-              <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  aria-current="page"
-                  href="./index.html"
-                  >Home</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Services</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">About Us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Contact Us</a>
-              </li>
-            </ul>
-          </div>
-        </div>
+    <!-- header -->
+    <header>
+      <!-- Preloader -->
+      <div id="preloader">
+        <div class="spinner-border loader" role="status"></div>
       </div>
-    </nav>
+
+      <!-- navbar -->
+      <nav class="navbar navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+          <div
+            class="flex-row d-flex justify-content-center align-items-center"
+          >
+            <a class="navbar-brand" href="./index.html"
+              ><img src="./assets/images/logo.png" alt="click fit logo"
+            /></a>
+            <h1 class="navbar-brand nav-title">
+              Click <span style="color: white">Fit</span>
+            </h1>
+          </div>
+
+          <!-- drawer toggle -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasDarkNavbar"
+            aria-controls="offcanvasDarkNavbar"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- drawer -->
+          <div
+            class="offcanvas offcanvas-end text-bg-dark"
+            tabindex="-1"
+            id="offcanvasDarkNavbar"
+            aria-labelledby="offcanvasDarkNavbarLabel"
+          >
+            <div class="offcanvas-header">
+              <h5
+                class="offcanvas-title nav-title"
+                id="offcanvasDarkNavbarLabel"
+              >
+                Click <span style="color: white">Fit</span>
+              </h5>
+              <button
+                type="button"
+                class="btn-close btn-close-white"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    aria-current="page"
+                    href="./index.html"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Services</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Contact Us</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- main -->
+    <main>
+      <!-- particles.js container -->
+      <div id="particles-js"></div>
+      <!-- banner slider -->
+        <div id="banner" class="d-flex justify-content-between align-items-center">
+          <div class="show">left</div>
+          <div class="show">right</div>
+        </div>
+
+    </main>
+
+    <!-- scripts -->
+    <script src="./particles.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- stats.js -->
+    <script src="js/lib/stats.js"></script>
+    <script>
+      var count_particles, stats, update;
+      stats = new Stats();
+      stats.setMode(0);
+      stats.domElement.style.position = "absolute";
+      stats.domElement.style.left = "0px";
+      stats.domElement.style.top = "0px";
+      document.body.appendChild(stats.domElement);
+      count_particles = document.querySelector(".js-count-particles");
+      update = function () {
+        stats.begin();
+        stats.end();
+        if (
+          window.pJSDom[0].pJS.particles &&
+          window.pJSDom[0].pJS.particles.array
+        ) {
+          count_particles.innerText =
+            window.pJSDom[0].pJS.particles.array.length;
+        }
+        requestAnimationFrame(update);
+      };
+      requestAnimationFrame(update);
+    </script>
 
     <!-- Bootstrap JS and JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

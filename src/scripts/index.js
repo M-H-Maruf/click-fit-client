@@ -3,4 +3,5 @@ $(document).ready(function () {
     $('#preloader').delay(1000).fadeOut(500, function () {
         $('#content').fadeIn(500);
     });
+
 });
