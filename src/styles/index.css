@@ -79,13 +79,28 @@ body {
     cursor: pointer;
 }
 
-.nav-link.active {
-    --bs-navbar-active-color: var(--primary-blue);
-    font-weight: 700;
+.dropdown-toggle::after {
+    display: none;
 }
 
-.nav-link:hover {
-    color: var(--primary-blue);
+nav li::marker {
+    display: none;
+}
+
+.dropdown-menu-end[data-bs-popper] {
+    top: 60px;
+    background-color: #000;
+}
+
+.dropdown-item {
+    color: white;
+}
+
+header a:hover {
+    color: #ffcc00; /* Change the color to your desired hover color */
+    text-decoration: underline;
+    text-underline-offset: 2px; /* Adjust the offset as needed */
+    transition: color 0.3s ease, text-underline-offset 0.3s ease; /* Add a smooth transition effect */
 }
 
 /* main styles */
@@ -100,6 +115,23 @@ main {
     min-height: calc(100vh - 70px);
     color: white;
 }
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.animate-blink {
+    animation: blink 1s infinite;
+}
+
 
 /* image upload styles */
 .drop-area {
@@ -119,8 +151,8 @@ main {
     gap: 16px;
     overflow-x: auto;
     white-space: nowrap;
-    height: 120px; 
-    
+    height: 120px;
+
     &::-webkit-scrollbar {
         width: 10px;
     }
@@ -136,9 +168,18 @@ main {
 
 #image-preview img {
     height: calc(100% - 10px);
-    border-radius: 2px;margin-bottom: 10px;
+    border-radius: 2px;
+    margin-bottom: 10px;
 }
 
 #image-drop {
     background-color: hsla(0, 0%, 0%, 0.788);
 }
+
+/* responsive styles */
+@media screen and (min-width: 992px) {
+    .banner-half {
+      width: 50%;
+    }
+  }
+  

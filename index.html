@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="./src/styles/index.css" />
     <link rel="stylesheet" href="./src/styles/particle.css" />
   </head>
+
   <body>
     <!-- header -->
     <header>
@@ -29,73 +30,64 @@
       </div>
 
       <!-- navbar -->
-      <nav class="navbar navbar-dark bg-dark fixed-top">
-        <div class="container-fluid">
+      <nav class="navbar navbar-dark bg-dark fixed-top px-lg-5">
+        <div class="container-fluid" style="max-width: 1250px;" >
           <div
             class="flex-row d-flex justify-content-center align-items-center"
           >
             <a class="navbar-brand" href="./index.html"
               ><img src="./assets/images/logo.png" alt="click fit logo"
             /></a>
-            <h1 class="navbar-brand nav-title">
+            <h1 class="navbar-brand nav-title mb-0">
               Click <span style="color: white">Fit</span>
             </h1>
           </div>
 
-          <!-- drawer toggle -->
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasDarkNavbar"
-            aria-controls="offcanvasDarkNavbar"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <!-- drawer -->
+          <!-- menu -->
           <div
-            class="offcanvas offcanvas-end text-bg-dark"
-            tabindex="-1"
-            id="offcanvasDarkNavbar"
-            aria-labelledby="offcanvasDarkNavbarLabel"
+            id="menu"
+            style="color: white;"
+            class="h-100 gap-4 m-0 justify-content-center align-items-center d-none d-lg-flex"
           >
-            <div class="offcanvas-header">
-              <h5
-                class="offcanvas-title nav-title"
-                id="offcanvasDarkNavbarLabel"
-              >
-                Click <span style="color: white">Fit</span>
-              </h5>
-              <button
-                type="button"
-                class="btn-close btn-close-white"
-                data-bs-dismiss="offcanvas"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="offcanvas-body">
-              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <li class="nav-item">
-                  <a
-                    class="nav-link active"
-                    aria-current="page"
-                    href="./index.html"
-                    >Home</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Services</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">About Us</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Contact Us</a>
-                </li>
-              </ul>
-            </div>
+            <a
+              style="color: white; font-weight: 600; cursor: pointer"
+              class="show link-underline-opacity-0 link-underline"
+              >HOME</a
+            >
+            <a
+              style="color: white; font-weight: 600; cursor: pointer"
+              class="show link-underline-opacity-0 link-underline"
+              >ABOUT US</a
+            >
+            <a
+              style="color: white; font-weight: 600; cursor: pointer"
+              class="show link-underline-opacity-0 link-underline"
+              >CONTACT US</a
+            >
+          </div>
+
+          <!-- drop down menu -->
+          <div style="height: 100%;" class="btn-group d-flex position-relative flex-column d-lg-none">
+            <button
+              id="menu-button"
+              type="button"
+              class="btn btn-secondary dropdown-toggle"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <img style="height: 30px;" src="./assets/images/menu.png" alt="">
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end position-absolute">
+              <li><button class="dropdown-item" type="button">HOME</button></li>
+              <li>
+                <button class="dropdown-item" type="button">ABOUT US</button>
+              </li>
+              <li>
+                <button class="dropdown-item" type="button">
+                  CONTACT US
+                </button>
+              </li>
+            </ul>
           </div>
         </div>
       </nav>
@@ -106,27 +98,42 @@
       <!-- particles.js container -->
       <div id="particles-js"></div>
       <!-- banner slider -->
-        <div id="banner" class="d-flex justify-content-between align-items-center">
-            <!-- banner left -->
-          <div style="max-width: 50%;" class="show">
-            <h1 class="section-title">Welcome to <span style="color: #2b60de">Click</span> <span style="color: white">Fit</span></h1>
-            <!-- data from api -->
-            <div id="api-content"></div>
+      <div
+        id="banner"
+        class="d-flex flex-column flex-lg-row justify-content-lg-between justify-content-center text-center p-3 p-xl-0 gap-5 align-items-center"
+      >
+        <!-- banner left -->
+        <div style="max-width: 500px;" class="show w-100 banner-half">
+          <h1 class="section-title">
+            Welcome to <span style="color: #2b60de">Click</span>
+            <span style="color: white">Fit</span><span class="animate-blink" style="font-family: 'Orbitron', sans-serif;">_</span>
+          </h1>
+          <!-- data from api -->
+          <div id="api-content">
+            <!-- content from api will be appended here -->
           </div>
-          <!-- banner right -->
-          <div style="max-width: 50%;" class="show">
-            <!-- drag and drop image -->
+        </div>
+        <!-- banner right -->
+        <div style="max-width: 500px;" class="show w-100 banner-half">
+          <!-- drag and drop image -->
           <div id="image-drop" class="drop-area">
             <p>Drag & Drop Images Here</p>
-            <label for="formFileMultiple" class="form-label">Multiple files input example</label>
-            <input class="form-control" type="file" id="file-input" multiple>
-            <div id="image-preview"></div>
-            <button id="upload-button" class="btn mt-3 btn-outline-primary">Upload</button>
-        </div>
-        <div class="toast-container position-fixed top-0 end-0 p-3">
+            <label for="formFileMultiple" class="form-label"
+              >Multiple files input example</label
+            >
+            <input class="form-control" type="file" id="file-input" multiple />
+            <div id="image-preview">
+              <!-- selected images will be appended here -->
+            </div>
+            <button id="upload-button" class="btn mt-3 btn-outline-primary">
+              Upload
+            </button>
+          </div>
+          <div class="toast-container position-fixed top-0 end-0 p-3">
             <!-- Toasts will be appended here -->
+          </div>
         </div>
-
+      </div>
     </main>
 
     <!-- scripts -->
